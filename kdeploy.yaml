@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: financeme-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: financeme
+  template:
+    metadata:
+      labels:
+        app: financeme
+    spec:
+      containers:
+      - name: financeme-container
+        image: akhilbmenon/startagile-financeme:latest
+        ports:
+        - containerPort: 8080 
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: financeme-service
+spec:
+  type: NodePort
+  selector:
+    app: financeme
+  ports:
+  - port: 80
+    targetPort: 8082
+    nodePort: 30036
