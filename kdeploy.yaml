@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: financeme-container
-        image: akhilbmenon/startagile-financeme:latest
+        image: akhilbmenon/staragile-financeme:latest
         ports:
         - containerPort: 8080 
 
